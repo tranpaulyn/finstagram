@@ -3,12 +3,8 @@
     <a href="/">Finstagram</a>
   </h1>
   <div class="login-info">
-    <% if current_user %>
-      <%= current_user.username %>
-      <a href="/logout">Logout</a>
-    <% else %>
-      <a href="/login">Login</a>
-      <a href="/signup">Signup</a>
-    <% end %>
+    <a href="/logout">Logout</a>
+    <a href="/login">Login</a>
+    <a href="/signup">Signup</a>
   </div>
 </header>
