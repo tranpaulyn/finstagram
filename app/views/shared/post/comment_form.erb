@@ -1,6 +1,6 @@
-<form class="new-comment" action="/comments" method="POST">
+<form class="new-comment" action="/posts/<%= post.id %>/comments" method="POST">
   <div class="form-group">
     <input type="text" id="text" name="text" placeholder="Comment">
   </div>
-  <input type="hidden" id="post_id" name="post_id" value="<%= post.id %>">
+  
 </form>

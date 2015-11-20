@@ -15,7 +15,8 @@ get '/posts/:id' do
 end
 
 post '/posts' do
-  @post = Post.new params.slice('photo_url', 'user_id')
+  # params => { post: { photo_url: '', title  } }  
+  @post = current_user.posts.new(params[:post])
   if @post.save
     redirect to("/")
   else

@@ -2,6 +2,7 @@ require 'rubygems'
 require 'bundler/setup'
 
 require 'active_support/all'
+require 'require_all'
 
 # Load Sinatra Framework (with AR)
 require 'sinatra'
@@ -28,4 +29,10 @@ end
 require APP_ROOT.join('config', 'database')
 
 # Load the routes / actions
-require APP_ROOT.join('app', 'actions')
+# require APP_ROOT.join('app', 'actions')
+require_all APP_ROOT.join('app', 'helpers', '*.rb')
+require_all APP_ROOT.join('app', 'actions', '*.rb')
+
+
+
+
