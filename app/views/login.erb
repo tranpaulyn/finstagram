@@ -1,9 +1,6 @@
 <% if @error_messages %>
-  <ul class="errors">
-    <% @error_messages.each do |message| %>
-      <li><%= message %></li>
-    <% end %>
-  </ul>
+
+  <%= erb :'shared/errors', locals: { errors: @error_messages } %>
 <% end %>
 
 <form action="/login" method="POST">

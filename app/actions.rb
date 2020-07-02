@@ -1,6 +1,6 @@
 helpers do
   def current_user
-    @current_user ||= User.find_by(id: session[:user_id])
+    @current_user = User.find_by(id: session[:user_id])
   end
 end
 
@@ -28,9 +28,9 @@ get '/login' do
 end
 
 post '/login' do
-  @user = User.find_by username: params[:username]
-  if @user && @user.password == params[:password]
-    session[:user_id] = @user.id
+  user = User.find_by username: params[:username]
+  if user && user.password == params[:password]
+    session[:user_id] = user.id
     redirect to("/")
   else
     @error_messages = ["Could not authenticate user."]
@@ -75,4 +75,8 @@ end
 delete '/likes/:id' do
   Like.find(params[:id]).destroy
   redirect back
+end
+
+get '/fake-form' do
+    erb :fake
 end
